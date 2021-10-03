@@ -104,7 +104,6 @@ export class GenerarmenuComponent implements OnInit {
         return;
       }
 
-      console.log("Pedido : "+JSON.stringify(pedido));
       
       const dialogRef = this.dialog.open(ConfirmationDialog, {
         data: {

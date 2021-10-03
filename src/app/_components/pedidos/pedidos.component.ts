@@ -101,7 +101,6 @@ export class PedidosComponent implements OnInit {
 
   actualizarPedido(row : Pedido){
 
-    console.log(JSON.stringify(row));
     const dialogRef = this.dialog.open(ConfirmationDialog, {
       data: {
         title: 'CONFIRMACIÓN',

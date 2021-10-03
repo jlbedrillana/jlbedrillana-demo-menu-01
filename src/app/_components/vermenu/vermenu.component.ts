@@ -43,7 +43,6 @@ export class VermenuComponent implements OnInit {
     this.dataSourceItemPP = new MatTableDataSource<Detalle>();
     this.pedido = data;
 
-    console.log("ver menu :"+JSON.stringify(this.pedido));
   }
 
   ngOnInit(): void {
