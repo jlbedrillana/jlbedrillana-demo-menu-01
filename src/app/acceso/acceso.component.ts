@@ -1,7 +1,9 @@
 import { identifierModuleUrl } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, NgForm, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { PedidoService } from '../_services/pedido.service';
 
 @Component({
   selector: 'app-acceso',
@@ -12,11 +14,12 @@ export class AccesoComponent implements OnInit {
 
   loginForm: FormGroup;
   msgAlerta: string = "";
-  constructor(private formBuilder: FormBuilder, private router: Router) { 
+  constructor(private formBuilder: FormBuilder, private router: Router, private pedidoApi: PedidoService, private snackBar: MatSnackBar) { 
     this.loginForm = this.createFormGroup();
   }
 
   ngOnInit(): void {
+    this.obtenerListaPedido();
   }
 
   createFormGroup() {
@@ -37,6 +40,17 @@ export class AccesoComponent implements OnInit {
       sessionStorage.setItem("usuario",this.loginForm.value.usuario);
       this.router.navigate(['/registro']);
     }
+  }
+
+  obtenerListaPedido(){
+    this.pedidoApi.getListaPedido().subscribe(data =>{
+    },
+    error => {
+      this.snackBar.open("Peticion fallida", '', {
+        duration: 3000,
+      });
+    }
+    );
   }
 
 }
