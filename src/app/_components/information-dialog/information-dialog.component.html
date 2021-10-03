@@ -1,0 +1,6 @@
+<p mat-dialog-title class="alert-title">{{title}}</p>
+<mat-dialog-content [innerHTML]="message" class="alert-title">
+</mat-dialog-content>
+<mat-dialog-actions align="center">
+  <button mat-raised-button class="mat-dialog-button-aceptar" (click)="onConfirmClick()" tabindex="1">{{confirmButtonText}}</button>
+</mat-dialog-actions>

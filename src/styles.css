@@ -1,1 +1,81 @@
 /* You can add global styles to this file, and also import other style files */
+/*@import "~@angular/material/prebuilt-themes/indigo-pink.css";*/
+
+.header-row-margin-hr {
+  width: 95%;
+  background-color: #faba05;
+  height: 2px;
+}
+
+.mat-dialog-container {
+  border-radius: 20px !important;
+  box-shadow: 3px 3px 3px #888888 !important;
+  text-align: center;
+  margin: 10px !important;
+  font-family: Roboto;
+  overflow: hidden !important;
+}
+
+/*
+.mat-form-field-outline-start, .mat-form-field-outline-end {
+  border-radius: 0 !important;
+}
+
+ */
+/*actual*/
+
+.mat-card-title-general {
+  /*style="background:#344955; padding:10px; color: white;"*/
+    background:#344955;
+    padding:10px;
+    color: white;
+  }
+
+  .mat-card-title-acciones {
+    /*style="background:#344955; padding:10px; color: white;"*/
+      background:#344955;
+      padding:10px;
+      color: white;
+    }
+
+mat-header-cell {
+  color: #00568d;
+  text-align: center;
+  /*color:#F5F6FB;
+    text-align: center;
+    background:#344955;*/
+  }
+
+.color-osce {
+  background:#FAAB1A;
+}
+
+.color-metal {
+  color:#F5F6FB;
+  background:#344955;
+}
+
+.color-red {
+  background:#DC2E2E;
+}
+
+.main--ficha-contratos {
+  /*height: 40vh;*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align:center;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+/* Hide HTML5 Up and Down arrows. */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}

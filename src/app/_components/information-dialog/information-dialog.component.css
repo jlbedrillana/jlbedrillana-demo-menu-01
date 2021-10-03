@@ -1,0 +1,17 @@
+.alert-title {
+    text-align: center;
+}
+
+.mat-dialog-button-aceptar{
+  background-color:  #faba05;
+  /*width: 120px;*/
+  border-radius: 10px;
+}
+
+.mat-dialog-button-cancelar{
+  background-color:  #ffffff;
+  /*width: 120px;*/
+  border-radius: 10px;
+  border: 0.5px solid black;
+}
+

@@ -1,0 +1,50 @@
+<mat-card>
+
+    <div class="containerForm" fxLayout="wrap row" fxLayout.xs="column" fxLayoutGap="0.5%"
+             fxFlexAlign="center">
+        <div  fxLayoutAlign="center center" fxLayout="row wrap" style="width: 100%;">
+
+            <div style="width: 30%; margin: auto;">
+                <mat-card class="navigation-title-card">
+
+                    <div style="width: 70%; margin: auto;">
+                        <span class="tituloPanel">
+                          <mat-icon aria-hidden="false" aria-label="Example home icon">inventory
+                          </mat-icon> Sistema de Registro de Pedido
+                        </span>
+                      </div>
+                      <br>
+                      <br>
+
+                    <mat-card-content class="card-content-form">
+
+                        <form fxLayout="column" style="padding-top: 25px;" [formGroup]="loginForm" >
+                        
+                            <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap.lt-md="0px" fxLayoutAlign="space-between" style="margin-bottom: 10px;">
+                                <mat-label class="mat-label" style="width: 250px;">Ingrese el usuario* : </mat-label>
+                                <mat-label class="mat-label" style="width: 250px;"></mat-label>
+                                <mat-form-field style="width: 350px;">
+                                    <input matInput type="text" placeholder="Usuario*" formControlName="usuario"
+                                    autocomplete="off" >
+                                    <mat-error> </mat-error>
+                                </mat-form-field>
+                            </div>
+                        </form>
+                        <div fxLayoutAlign="center center" >
+                            <mat-label class="mat-label" style="width: 250px; color: red; margin-left: 50px">
+                                {{msgAlerta}}
+                            </mat-label>
+                        </div>
+                        <div fxLayoutAlign="center center" >
+                            <button mat-raised-button style="margin-left: 100px" (click)="ingresar()" >
+                            Ingresar
+                            </button>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+
+        </div>
+    </div>
+
+</mat-card>

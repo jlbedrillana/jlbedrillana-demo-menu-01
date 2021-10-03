@@ -1,0 +1,101 @@
+<mat-dialog-content style="max-height: 800px;">
+
+    
+    <div name="cuerpo">
+        <div>
+            <span class="tituloPanel">
+              <mat-icon aria-hidden="false" aria-label="Example home icon">inventory
+              </mat-icon> Nuevo Pedido
+            </span>
+          </div>
+          <mat-card-content class="card-content-form">
+          <form fxLayout="column" [formGroup]="menuForm">
+            <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap.lt-md="0px" fxLayoutAlign="space-between">
+                <mat-label class="mat-label" >Nro de Mesa*:</mat-label>
+                <mat-form-field >
+                    <mat-select formControlName="nromesa">
+                        <mat-option *ngFor="let con of DATA_MESA" [value]="con.idmesa" >
+                            {{con.nombre}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error> {{ titleAlert }} </mat-error>
+                </mat-form-field>
+            </div>
+            <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap.lt-md="0px" fxLayoutAlign="space-between">
+                <mat-label class="mat-label" >Denominacion Pedido*:</mat-label>
+                <mat-form-field >
+                    <input matInput type="text" formControlName= "denominacion"
+                    autocomplete="off" placeholder="Denominacion">
+                    <mat-error> {{ titleAlert }} </mat-error>
+                </mat-form-field>
+            </div>
+            <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap.lt-md="0px" fxLayoutAlign="space-between" >
+                <mat-label class="mat-label" >Observación:</mat-label>
+                <mat-form-field >
+                    <input matInput type="text" formControlName= "observacion"
+                    autocomplete="off" placeholder="Observación">
+                    <mat-error> {{ titleAlert }} </mat-error>
+                </mat-form-field>
+            </div>
+            <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap.lt-md="0px" fxLayoutAlign="space-between">
+                <mat-label class="mat-label" >Etado*:</mat-label>
+                <mat-form-field >
+                    <mat-select formControlName="estado" [disabled]="true" >
+                        <mat-option *ngFor="let con of DATA_ESTADO" [value]="con.idestado" >
+                            {{con.nombre}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error> {{ titleAlert }} </mat-error>
+                </mat-form-field>
+            </div>
+            </form>
+        </mat-card-content>
+        <div style="width: 100%; margin: 0px auto;">
+            <mat-table [dataSource]="dataSourceItemPP" matSort class="mat-table-credito">
+                <ng-container matColumnDef="select">
+                    <mat-header-cell *matHeaderCellDef>
+                      <mat-checkbox (change)="updateAllItems()" [(ngModel)]="selectAll"> </mat-checkbox>
+                    </mat-header-cell>
+                    <mat-cell *matCellDef="let row; let i = index;" data-label="select">
+                      <mat-checkbox [value]="row.select" [(ngModel)]="row.select" [ngModelOptions]="{standalone: true}" 
+                       >
+                      </mat-checkbox>
+                    </mat-cell>
+                  </ng-container>
+                <ng-container matColumnDef="idmenu" >
+                    <mat-header-cell *matHeaderCellDef class="column-minimo" fxLayoutAlign="center center"> ID </mat-header-cell>
+                    <mat-cell *matCellDef="let row; let i = index;" class="column-item-data-minimo" fxLayoutAlign="center center">
+                        {{row.idmenu}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="menu">
+                    <mat-header-cell *matHeaderCellDef class="column-minimo" fxLayoutAlign="center center"> MENÚ </mat-header-cell>
+                    <mat-cell *matCellDef="let row; let i = index;" class="column-item-data-minimo" fxLayoutAlign="center center">
+                        {{row.menu}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="costo">
+                    <mat-header-cell *matHeaderCellDef class="column-minimo" fxLayoutAlign="center center"> COSTO </mat-header-cell>
+                    <mat-cell *matCellDef="let row; let i = index;" class="column-item-data-minimo" fxLayoutAlign="center center">
+                        {{row.costo}} </mat-cell>
+                </ng-container>
+                <mat-header-row *matHeaderRowDef="displayedColumnsPrevPres" class="encabezado"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumnsPrevPres;"></mat-row>
+            </mat-table>
+            <mat-paginator fxLayoutAlign="end" #TablePPPaginator="matPaginator" class="mat-paginator-resultado" style="background: #f2f2f2; color: #000000; font-weight: bold; "
+                            [pageSize]="5"
+                            [pageSizeOptions]="[5, 10, 20, 50, 100]"
+                            [showFirstLastButtons]="true">
+            </mat-paginator>
+        </div>
+        <mat-card-actions fxLayoutAlign="center">
+            <button mat-raised-button
+             class="form-button-conformidad" style="width: 150px; margin-right: 10px;" (click)="cerrar()">
+                Cancelar
+            </button>
+            <button mat-raised-button [disabled]="!menuForm.valid" 
+             class="form-button-conformidad" style="width: 150px;" (click)="registrarPedido()">
+                Registrar pedido
+            </button>
+        </mat-card-actions>
+    </div>
+
+</mat-dialog-content>
